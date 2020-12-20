@@ -46,7 +46,6 @@ for i in info:
     compras = i.find_all('div', {"class": "normal-all-day"})
     ventas = i.find_all('div', {"class": "pap-all-day"})
 
-    print(compras)
     #if len(compras) > 0:
         
     tmp.append({"fecha": fechas})
