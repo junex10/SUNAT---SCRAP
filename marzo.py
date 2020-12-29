@@ -10,10 +10,10 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 
 driver_exe = 'chromedriver'
-options = Options()
-options.add_argument("--headless") 
 
-browser = webdriver.Chrome(driver_exe, options=options)
+browser = webdriver.Chrome(driver_exe)
+browser.set_window_size(1,1)
+browser.minimize_window()
 url = 'https://e-consulta.sunat.gob.pe/cl-at-ittipcam/tcS01Alias'
 browser.get(url)
 
