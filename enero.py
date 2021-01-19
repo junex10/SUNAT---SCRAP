@@ -44,64 +44,17 @@ def scrap(info, mes, varmes):
 
     datos.append({mes: varmes})
 
-x = 0
+def comprobar(mes):
+    y = 0
+    while(y != 1):
+        m = browser.find_elements_by_class_name('js-cal-option')[1].text
 
-while x != 1:
-
-    html = browser.page_source
-    soup = BeautifulSoup(html, "html.parser")
-
-    com = soup.find_all('div', {"class": "normal-all-day"})
-
-    if len(com) > 0:
-        x = 1
-    else:
-        browser.refresh()
-        time.sleep(10)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
-
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
+        if m != mes:
+            link = browser.find_elements_by_class_name("js-cal-prev")[0]
+            link.click()
+            time.sleep(5)
+        else:
+            y = 1
 
 k = 0
 
@@ -116,52 +69,9 @@ while k != 1:
         k = 1
     else:
         browser.refresh()
-        
         time.sleep(10)
 
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
-
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
+        comprobar('Enero')
 
 
 html = browser.page_source

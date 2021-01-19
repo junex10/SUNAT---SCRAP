@@ -44,6 +44,18 @@ def scrap(info, mes, varmes):
 
     datos.append({mes: varmes})
 
+def comprobar(mes):
+    y = 0
+    while(y != 1):
+        m = browser.find_elements_by_class_name('js-cal-option')[1].text
+
+        if m != mes:
+            link = browser.find_elements_by_class_name("js-cal-prev")[0]
+            link.click()
+            time.sleep(10)
+        else:
+            y = 1
+
 x = 0
 
 while x != 1:
@@ -59,9 +71,7 @@ while x != 1:
         browser.refresh()
         time.sleep(10)
 
-link = browser.find_elements_by_class_name("js-cal-prev")[0]
-link.click()
-time.sleep(5)
+comprobar('Noviembre')
 
 k = 0
 
@@ -78,9 +88,7 @@ while k != 1:
         browser.refresh()
         time.sleep(10)
 
-        link = browser.find_elements_by_class_name("js-cal-prev")[0]
-        link.click()
-        time.sleep(5)
+        comprobar('Noviembre')
 
 html = browser.page_source
 soup = BeautifulSoup(html, "html.parser")
